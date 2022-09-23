@@ -2,7 +2,7 @@
 //  TableViewController.swift
 //  ShoppingList
 //
-//  Created by Eric Alves Brito.
+//  Created by Matheus Lopes.
 //  Copyright © 2020 FIAP. All rights reserved.
 //
 
