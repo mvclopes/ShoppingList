@@ -86,6 +86,50 @@ final class ListTableViewController: UITableViewController {
         }
         
     }
+    
+    private func showAlertFor(_ shoppingItem: ShoppingItem? = nil) {
+        let alert = UIAlertController(
+            title: "Produto",
+            message: "Entre com as informações do produto",
+            preferredStyle: .alert
+        )
+        alert.addTextField { textField in
+            textField.placeholder = "Nome"
+            textField.text = shoppingItem?.name
+        }
+        alert.addTextField { textField in
+            textField.placeholder = "Quantidade"
+            textField.keyboardType = .numberPad
+            textField.text = shoppingItem?.quantity.description
+        }
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            guard let name = alert.textFields?.first?.text,
+                  let quantityString = alert.textFields?.last?.text,
+                  let quantity = Int(quantityString) else { return }
+            
+            let data: [String:Any] = [
+                "name": name,
+                "quantity": quantity
+            ]
+            
+            if let shoppingItem = shoppingItem {
+                self.fireStore
+                    .collection(self.collection)
+                    .document(shoppingItem.id)
+                    .updateData(data)
+            } else {
+                self.fireStore
+                    .collection(self.collection)
+                    .addDocument(data: data)
+            }
+        }
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .destructive)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
 
     // MARK: - Table view data source
 
@@ -104,11 +148,23 @@ final class ListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let shoppingItem = shoppingList[indexPath.row]
+        showAlertFor(shoppingItem)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let shopping = shoppingList[indexPath.row]
+            fireStore
+                .collection(collection)
+                .document(shopping.id)
+                .delete()
+        }
     }
     
     // MARK: - IBActions
     @IBAction func addItem(_ sender: Any) {
+        showAlertFor()
     }
 
 }
