@@ -19,6 +19,7 @@
 		ACBB714C28DD1EC800F85F74 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ACBB714B28DD1EC800F85F74 /* FirebaseRemoteConfigSwift */; };
 		ACBB714E28DD1F6900F85F74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACBB714D28DD1F6900F85F74 /* GoogleService-Info.plist */; };
 		ACBB715028DD33A200F85F74 /* ShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB714F28DD33A200F85F74 /* ShoppingItem.swift */; };
+		ACBB715228DD432400F85F74 /* RemoteConfigValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB715128DD432400F85F74 /* RemoteConfigValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		22EB27CD252FBAB100996F13 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		ACBB714D28DD1F6900F85F74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ACBB714F28DD33A200F85F74 /* ShoppingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItem.swift; sourceTree = "<group>"; };
+		ACBB715128DD432400F85F74 /* RemoteConfigValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigValues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				22EB27C7252FBA0100996F13 /* Info.plist */,
 				ACBB714D28DD1F6900F85F74 /* GoogleService-Info.plist */,
 				ACBB714F28DD33A200F85F74 /* ShoppingItem.swift */,
+				ACBB715128DD432400F85F74 /* RemoteConfigValues.swift */,
 			);
 			path = ShoppingList;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACBB715228DD432400F85F74 /* RemoteConfigValues.swift in Sources */,
 				ACBB715028DD33A200F85F74 /* ShoppingItem.swift in Sources */,
 				22EB27BE252FB9FD00996F13 /* LoginViewController.swift in Sources */,
 				22EB27CE252FBAB100996F13 /* ListTableViewController.swift in Sources */,
